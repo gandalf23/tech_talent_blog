@@ -3,6 +3,7 @@
 <h1>Mike's Blog</h1>
 <% counter = 0 %>
 
+<p>Welcome <%= current_user.email %>!</p>
 
   <div class= "row">
     <% @blog_posts.each do |blog_post| %>

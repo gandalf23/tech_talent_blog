@@ -12,17 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
+    <%= f.label current_user.email %><br>
   </div>
   <div class="field">
     <%= f.label :comment_entry %><br>
-    <%= f.text_area :comment_entry, class: 'row-fluid', :rows => 10%>
+    <%= f.text_area :comment_entry, class: "form-control", placeholder: "Please Type Comment Here, Thank You!", rows: 10 %>
     
+
   </div>
     <div class="field cant-see-me">
-      <%= f.number_field :blog_post_id, value: @blog_post.id %>
+    <%= f.number_field :blog_post_id, value: @blog_post.id %>
+    <%= f.number_field :user_id, value: current_user.id %>
   </div>
+  
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>
