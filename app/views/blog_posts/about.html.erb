@@ -1,0 +1,17 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>About Mike's Blog</h1>
+
+<p>Welcome <%= current_user.username %>!</p>
+
+<p style= "color:<%=@color%>">This is the blog I built using ruby on rails at c9.io for the class I am taking at Tech Talent South - Dallas.  </p>
+<p style= "color:<%=@color%>">I started this project on Monday, August 31, 2015, in the morning, worked on it a bit in the afternoon, and continued to work on it on Tuesday, September 1, 2015.  </p>
+
+<p style= "color:<%=@color%>">The buttons below will change the color of the text on this page</p>
+
+
+
+<p><%= link_to "Blue", about_path(color: "blue"), class: "btn btn-primary" %><%= link_to "Purple", about_path(color: "purple"), class: "btn btn-purple" %><%= link_to "Red", about_path(color: "red"), class: "btn btn-red" %><%= link_to "Green", about_path(color: "green"), class: "btn btn-green" %><%= link_to "Black", about_path(color: "black"), class: "btn btn-black" %></p>
+
+

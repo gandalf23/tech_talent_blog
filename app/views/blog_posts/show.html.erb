@@ -8,7 +8,7 @@
             </p>
             <p>
               <strong>Author:</strong>
-              <%= @blog_post.author %>
+              <%= current_user.username %>
             </p>
           </div>
           <div class="panel-body">
@@ -18,7 +18,7 @@
               </p>
               <p><strong><%=@blog_post.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
 
-              <%= link_to 'Edit', edit_blog_post_path(@blog_post), class:"btn btn-warning"%> 
+              <%= link_to 'Edit Blog Post', edit_blog_post_path(@blog_post), class:"btn btn-warning"%> 
               
          
               <div class="row-fluid">

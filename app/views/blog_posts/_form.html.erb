@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
     <%= f.text_field :title, placeholder: "Title" %>
   </div>
 
   <div class="field">
-    <%= f.label :author %>: 
-    <%= @blog_post.user.email  %>
+    <p>Author: <%= current_user.email %>!</p>
   </div>
 
    <div class="form-group cant-see-me">
@@ -27,7 +25,6 @@
   
   
   <div class="field" >
-    <%= f.label :blog_entry %><br>
     <%= f.text_area :blog_entry, class: "form-control", placeholder: "Type Blog Entry Here, Please", rows: 20 %>
   </div>
 

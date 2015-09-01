@@ -14,6 +14,17 @@ class BlogPostsController < ApplicationController
     @comment =Comment.new
     
   end
+  
+  def about
+    @blog_posts = BlogPost.all
+    @comment =Comment.new
+    @color = params[:color]
+  end
+
+  def contact
+    @blog_posts = BlogPost.all
+    @comment =Comment.new
+  end
 
   # GET /blog_posts/new
   def new
