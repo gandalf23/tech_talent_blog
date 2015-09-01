@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+
+  <div class="panel panel-default">
+          <div class="panel-heading">
+            <p><strong>Title:</strong>
+            <%= @blog_post.title %>
+            </p>
+            <p>
+              <strong>Author:</strong>
+              <%= @blog_post.author %>
+            </p>
+          </div>
+          <div class="panel-body">
+              <p>
+                <strong>Blog entry:</strong>
+                <%= @blog_post.blog_entry %>
+              </p>
+              <p><strong><%=@blog_post.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
+
+              <%= link_to 'Edit', edit_blog_post_path(@blog_post), class:"btn btn-warning"%> 
+              
+         
+              <div class="row-fluid">
+              
+                <%= render 'comments/form' %>    
+                    
+              </div>      
+                 
+                 <div id="comments"><strong>COMMENTS:   </div></strong>
+                <div class="panel-footer">
+                    <% @blog_post.comments.each do |comment| %>
+                        <div class= "panel-body">
+                        <p><strong><%= comment.author %></strong> said: </p>
+                        <p>"<%= comment.comment_entry %>"</p>
+                        <p>at: <strong><%=comment.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
+                        </div>
+                    <% end %>
+                </div>              
+             </div>
+ 
+  
+  </div>
+
+
+
+
+<%= link_to 'Back', blog_posts_path, class:"btn btn-info" %>
