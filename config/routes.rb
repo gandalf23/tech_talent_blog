@@ -30,7 +30,7 @@ Rails.application.routes.draw do
    
    get 'edit' => 'blog_posts#edit'
    
-
+get 'sign_up' => 'devise#new'
    
    get 'new' => 'blog_posts#new'
   root 'blog_posts#index'
