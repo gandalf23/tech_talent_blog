@@ -8,6 +8,15 @@ class BlogPostsController < ApplicationController
     @comment =Comment.new
   end
 
+  def user_posts
+    @user = User.find(params[:id])
+  end
+
+  def your_posts
+
+  end
+    
+    
   # GET /blog_posts/1
   # GET /blog_posts/1.json
   def show
@@ -16,14 +25,14 @@ class BlogPostsController < ApplicationController
   end
   
   def about
-    @blog_posts = BlogPost.all
-    @comment =Comment.new
+    # @blog_posts = BlogPost.all
+    # @comment =Comment.new
     @color = params[:color]
   end
 
   def contact
-    @blog_posts = BlogPost.all
-    @comment =Comment.new
+    # @blog_posts = BlogPost.all
+    # @comment =Comment.new
   end
 
   # GET /blog_posts/new
@@ -85,4 +94,7 @@ class BlogPostsController < ApplicationController
     def blog_post_params
       params.require(:blog_post).permit(:title, :author, :blog_entry, :user_id)
     end
+    
+
+  
 end

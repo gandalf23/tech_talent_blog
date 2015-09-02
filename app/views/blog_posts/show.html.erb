@@ -8,7 +8,8 @@
             </p>
             <p>
               <strong>Author:</strong>
-              <%= @blog_post.author %>
+
+              <%= link_to @blog_post.user.username, user_posts_path(id: @blog_post.user_id)  %>
             </p>
           </div>
           <div class="panel-body">
@@ -18,29 +19,30 @@
               </p>
               <p><strong><%=@blog_post.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
 
-              <%= link_to 'Edit Blog Post', edit_blog_post_path(@blog_post), class:"btn btn-warning"%> 
+            <% if current_user.id == @blog_post.user.id %>
+                 <%= link_to 'Edit Blog Post', edit_blog_post_path(@blog_post), class:"btn btn-warning"%> 
+            <% end %>
+             
               
          
-
-
-                  <%= render 'comments/form' %>    
-
-     
-            
-            
-
-             <div id="comments"><strong>COMMENTS:   </div></strong>
+              <div class="row-fluid">
+              
+                <%= render 'comments/form' %>    
+                    
+              </div>      
+                 
+                 <div id="comments"><strong>COMMENTS:   </div></strong>
                 <div class="panel-footer">
                     <% @blog_post.comments.each do |comment| %>
                         <div class= "panel-body">
-                        <p><strong><%= comment.author %></strong> said: </p>
+                        <p><strong><%= link_to comment.user.username, user_posts_path(id: comment.user.id) %></strong> said: </p>
                         <p>"<%= comment.comment_entry %>"</p>
                         <p>at: <strong><%=comment.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
                         </div>
                     <% end %>
                 </div>              
-              </div>
-
+             </div>
+ 
   
   </div>
 

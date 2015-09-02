@@ -4,16 +4,17 @@
 <% counter = 0 %>
 
 <p>Welcome <%= current_user.username %>!</p>
+<p>These are your posts:</p>
 
   <div class= "row">
-    <% @blog_posts.each do |blog_post| %>
-      <div class="col-md-6">
+    <% current_user.blog_posts.each do |blog_post| %>
+      <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
               <%= link_to blog_post.title,  blog_post %>
           </div>
           <div class="panel-body">
-            by: <%= link_to blog_post.user.username, user_posts_path(id: blog_post.user_id) %> <br>
+            by: <%= blog_post.user.username %> <br>
             <p><%= blog_post.blog_entry[0..250] %>...[ <%= link_to "READ MORE", blog_post %> ]
             <% blog_post.comments.each do |comment| %>
               <% counter +=1 %>
@@ -27,8 +28,8 @@
           
           <div class="panel-footer">
 
+            <%= link_to 'Edit Blog Post', edit_blog_post_path(blog_post), class:"btn btn-warning" %>
             <% if current_user.username == blog_post.user.username %>
-                <%= link_to 'Edit Blog Post', edit_blog_post_path(blog_post), class:"btn btn-warning" %>
                 <%= link_to 'Destroy Post', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
             <% end %>
           </div>
@@ -39,5 +40,4 @@
 
 
 <br>
-
 
