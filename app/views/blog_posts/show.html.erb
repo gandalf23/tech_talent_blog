@@ -8,13 +8,13 @@
             </p>
             <p>
               <strong>Author:</strong>
-              <%= current_user.username %>
+              <%= @blog_post.author %>
             </p>
           </div>
           <div class="panel-body">
               <p>
                 <strong>Blog entry:</strong>
-                <%= @blog_post.blog_entry %>
+                <pre><%= @blog_post.blog_entry %></pre>
               </p>
               <p><strong><%=@blog_post.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
 
@@ -31,7 +31,7 @@
                 <div class="panel-footer">
                     <% @blog_post.comments.each do |comment| %>
                         <div class= "panel-body">
-                        <p><strong><%= comment.author %></strong> said: </p>
+                        <p><strong><%= @comment.author %></strong> said: </p>
                         <p>"<%= comment.comment_entry %>"</p>
                         <p>at: <strong><%=comment.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
                         </div>

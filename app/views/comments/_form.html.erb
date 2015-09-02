@@ -19,10 +19,15 @@
   </div>
   
     <div class="field">
-    <p>comment authored by: <%= current_user.email %>!</p>
+
+    <p>comment authored by: <%= current_user.username %></p>
+    
+   
+    
   </div>
   
     <div class="field cant-see-me">
+      <%=f.label :author, value: current_user.username %>
     <%= f.number_field :blog_post_id, value: @blog_post.id %>
     <%= f.number_field :user_id, value: current_user.id %>
   </div>

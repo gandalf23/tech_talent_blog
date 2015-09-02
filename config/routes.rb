@@ -3,21 +3,25 @@ Rails.application.routes.draw do
   resources :comments
   resources :blog_posts
 
+  get 'users/index'  => 'blog_posts#index'
+  
   get 'index'  => 'blog_posts#index'
   
   get 'blog_posts/index'  => 'blog_posts#index'
 
   get 'ilovetocode'  => 'blog_posts#index'
 
-  get 'about' => 'blog_posts#about'
+  get 'users/about' => 'blog_posts#about'
 
   get 'blog_posts/about' => 'blog_posts#about'
 
+  get 'users/contact' => 'blog_posts#contact'
+   
+  get 'about' => 'blog_posts#about'
 
   get 'contact' => 'blog_posts#contact'
-  
-  
-   get 'show' => 'blog_posts#show'
+   
+  get 'show' => 'blog_posts#show'
    
    get 'edit' => 'blog_posts#edit'
    
